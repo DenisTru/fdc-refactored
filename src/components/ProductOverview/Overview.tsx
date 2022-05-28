@@ -5,8 +5,10 @@ import {mockProduct, mockItemStyles} from '../../mockData';
 export const Overview = () => {
 
 //IMAGE CAROUSEL
-//SLIDESHOW handle click, showcase image, thumbnail gallery
-//slide - image
+//-needs to show an image
+//- needs to be able change image
+//future, zoom and full screen modal
+//also need to add a thumbnail gallery component to it, might be better to use global state and seperate them though
 
 
   return (
