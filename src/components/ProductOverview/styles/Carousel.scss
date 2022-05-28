@@ -14,14 +14,13 @@
   cursor: pointer;
   position: absolute;
   top: 43%;
-  font-size: 70px;
+  font-size: 60px;
   color: black;
-  padding: 0 10px 0 10px;
 }
 
 
 .previous {
-  left: 0;
+  left: 10px;
   border-radius: 3px 0 0 3px;
   -moz-transform: scale(-1, 1);
   -webkit-transform: scale(-1, 1);
@@ -31,9 +30,10 @@
 }
 
 .next {
-  right: 0;
+  right: 10px;
   border-radius: 3px 0 0 3px;
 }
+
 
 .previous:hover, .next:hover {
   color: rgba(250, 250, 250, 0.8);
