@@ -1,10 +1,20 @@
 * {box-sizing:border-box}
 
+.flex{
+  display: flex;
+  width: 700px;
+}
+
+.flex-child{
+  flex: 1;
+}
+.flex-child:first-child {
+  margin-right: 20px;
+}
+//---------image gallery -------------
 .carousel-container {
   position: relative;
   margin: auto;
-  width: 500px;
-
 }
 .carousel-slide {
   display: none;
@@ -79,7 +89,7 @@
   background-color: rgb(255, 253, 253);
 }
 .active img {
-  width: 100%;
+  width: 80%;
   height: 600px;
   object-fit: cover;
 }
@@ -91,4 +101,31 @@
 @keyframes fade {
   from {opacity: .4}
   to {opacity: 1}
+}
+//-----Thumbnail Gallery Styles ---------
+
+.thumbnailGallery-container{
+  border-style: dotted;
+  width: 20%;
+  padding: 10px;
+  height:600px;
+  overflow: scroll;
+}
+.thumbnailGallery-container::-webkit-scrollbar {
+  width: 0px;
+  background: transparent; /* make scrollbar transparent */
+}
+.thumbnailGallery-container .thumbnail {
+  border-radius: 4px;  /* Rounded border */
+  padding: 5px; /* Some padding */
+  width: 100px; /* Set a small width */
+  opacity: 0.8;
+  cursor: pointer;
+}
+.thumbnailGallery-container .thumbnail:hover {
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+    opacity: 1;
+}
+.thumbnailGallery-container .active  {
+  border-style: dotted;
 }

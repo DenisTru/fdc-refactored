@@ -13,3 +13,11 @@ export interface Photo {
     thumbnail_url: string;
     url:           string;
   }
+
+export type ThumbnailGalleryProps = {
+  className?: string
+  photos: Styles["photos"]
+  activePhoto: number
+  setActive: React.Dispatch<React.SetStateAction<number>>
+
+}
