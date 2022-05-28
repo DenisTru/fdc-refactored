@@ -13,8 +13,8 @@ export const Carousel = ({styles}: CarouselProps) => {
     <img className="carousel fade" src={photo.url} alt={styles.name}></img>
   </div>
 })}
-<BsArrowRightSquare className="previous" onClick={()=> {return showCasedPhoto > 0 ? setShowCasedPhoto(showCasedPhoto - 1): ''}}/>
-<BsArrowRightSquare className="next" onClick={() => {return showCasedPhoto < styles.photos.length - 1 ? setShowCasedPhoto(showCasedPhoto + 1): ''}} />
+<BsArrowRightSquare className="previous" onClick={()=> {return showCasedPhoto > 0 ? setShowCasedPhoto(showCasedPhoto - 1): setShowCasedPhoto(styles.photos.length-1)}}/>
+<BsArrowRightSquare className="next" onClick={() => {return showCasedPhoto < styles.photos.length - 1 ? setShowCasedPhoto(showCasedPhoto + 1): setShowCasedPhoto(0)}} />
   </div>
   )
 }
