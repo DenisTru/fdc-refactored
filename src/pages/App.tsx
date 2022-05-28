@@ -1,10 +1,12 @@
-import './styles/App.css';
+import './styles/App.scss';
+import { Overview } from '../components/ProductOverview/Overview'
+
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-          Rebuild FDC
+          <Overview></Overview>
       </header>
     </div>
   );
