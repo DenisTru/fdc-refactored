@@ -7,7 +7,7 @@ import { ThumbnailGallery } from './thumbnailGallery';
 export const Carousel = ({styles}: CarouselProps) => {
   const [showCasedPhoto, setShowCasedPhoto] = useState(0);
   return (
-  <div className="carousel flex">
+<div className="carousel flex">
  <ThumbnailGallery
   className="flex-child"
   photos={styles.photos}
