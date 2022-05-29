@@ -1,8 +1,8 @@
-import { CarouselProps } from './Carousel.types'
+import { CarouselProps } from '../types/Carousel.types'
 import {useState} from 'react';
 import './styles/Carousel.scss'
-import { BsArrowRightSquare } from 'react-icons/bs'
-import { ThumbnailGallery } from './thumbnailGallery';
+import { BsFillArrowRightSquareFill } from 'react-icons/bs'
+import { ThumbnailGallery } from './ThumbnailGallery';
 
 export const Carousel = ({styles}: CarouselProps) => {
   const [showCasedPhoto, setShowCasedPhoto] = useState(0);
@@ -19,8 +19,8 @@ export const Carousel = ({styles}: CarouselProps) => {
     <img className="carousel fade" src={photo.url} alt={styles.name}></img>
   </div>
 })}
-<BsArrowRightSquare className="previous" onClick={()=> {return showCasedPhoto > 0 ? setShowCasedPhoto(showCasedPhoto - 1): setShowCasedPhoto(styles.photos.length-1)}}/>
-<BsArrowRightSquare className="next" onClick={() => {return showCasedPhoto < styles.photos.length - 1 ? setShowCasedPhoto(showCasedPhoto + 1): setShowCasedPhoto(0)}} />
+<BsFillArrowRightSquareFill className="previous" onClick={()=> {return showCasedPhoto > 0 ? setShowCasedPhoto(showCasedPhoto - 1): setShowCasedPhoto(styles.photos.length-1)}}/>
+<BsFillArrowRightSquareFill className="next" onClick={() => {return showCasedPhoto < styles.photos.length - 1 ? setShowCasedPhoto(showCasedPhoto + 1): setShowCasedPhoto(0)}} />
   </div>
   </div>
   )

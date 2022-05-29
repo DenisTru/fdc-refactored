@@ -1,5 +1,5 @@
 import React, {useRef, useEffect} from 'react'
-import { ThumbnailGalleryProps } from './Carousel.types'
+import { ThumbnailGalleryProps } from '../types/Carousel.types'
 
 
 
@@ -7,7 +7,7 @@ export const ThumbnailGallery = ({photos, activePhoto, setActive} : ThumbnailGal
   const imageRef = useRef<HTMLImageElement>(null);
   useEffect(() => {
     if (null !== imageRef.current) {
-      imageRef.current.scrollIntoView({});
+      imageRef.current.scrollIntoView({behavior:'smooth', block: 'center'});
     }
 
   });
