@@ -6,6 +6,8 @@ export type ItemDetailsProps = {
   category: Product["category"]
   name: Product["name"]
   styles : Style[]
+  showcasedPhoto: number
+  setShowcasedPhoto: React.Dispatch<React.SetStateAction<number>>
 }
 
 export interface Product {

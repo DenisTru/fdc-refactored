@@ -1,8 +1,10 @@
 import { Carousel } from './ImageCarousel/Carousel'
+import {useState} from 'react';
 import {mockProduct, mockItemStyles} from '../../mockData';
 import { ItemDetails } from './InformationPanel/ItemDetails';
 
 export const Overview = () => {
+  const [showcasedPhoto,setShowcasedPhoto] = useState(0);
 
 //IMAGE CAROUSEL
 //-needs to show an image
@@ -13,8 +15,16 @@ export const Overview = () => {
 
   return (
   <div>
-    <ItemDetails category={mockProduct.category} name={mockProduct.name} styles={mockItemStyles}/>
-{/* <Carousel styles={mockItemStyles[0]}/> */}
+    <ItemDetails
+    category={mockProduct.category}
+    name={mockProduct.name}
+    styles={mockItemStyles}
+    showcasedPhoto={showcasedPhoto}
+    setShowcasedPhoto={setShowcasedPhoto}/>
+{/* <Carousel
+showcasedPhoto={showcasedPhoto}
+setShowcasedPhoto={setShowcasedPhoto}
+styles={mockItemStyles[0]}/> */}
   </div>)
 }
 
