@@ -19,5 +19,4 @@ export type ThumbnailGalleryProps = {
   photos: Styles["photos"]
   activePhoto: number
   setActive: React.Dispatch<React.SetStateAction<number>>
-
 }

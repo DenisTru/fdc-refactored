@@ -1,6 +1,6 @@
 import { Carousel } from './ImageCarousel/Carousel'
 import {mockProduct, mockItemStyles} from '../../mockData';
-import { StarReviews } from './InformationPanel/StarReviews';
+import { ItemDetails } from './InformationPanel/ItemDetails';
 
 export const Overview = () => {
 
@@ -13,7 +13,7 @@ export const Overview = () => {
 
   return (
   <div>
-    <StarReviews rating={3.5}/>
+    <ItemDetails category={mockProduct.category} name={mockProduct.name} styles={mockItemStyles}/>
 {/* <Carousel styles={mockItemStyles[0]}/> */}
   </div>)
 }
