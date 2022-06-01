@@ -13,6 +13,7 @@ export type ItemDetailsProps = {
 export type StyleSelectorProps = {
   styles: Style[]
   activeStyle: Style
+  setActiveStyle: React.Dispatch<React.SetStateAction<number>>
 }
 
 

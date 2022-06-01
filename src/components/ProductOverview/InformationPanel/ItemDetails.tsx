@@ -19,7 +19,7 @@ export const ItemDetails= ({category, name, styles, showcasedPhoto, setShowcased
     }
     <br/>
     <span className="ItemDetails style-name">Style {'>'} {activeStyle.name}</span> */}
-    <StyleSelector activeStyle={activeStyle} styles={styles}/>
+    <StyleSelector styles={styles} activeStyle={activeStyle} setActiveStyle={setShowcasedPhoto}/>
     </section>
   )
 }
