@@ -1,12 +1,13 @@
+
 //carousel only needs photos of the style to display
 export type CarouselProps = {
-  styles: Styles
+  style: Style
   showcasedPhoto: number
   setShowcasedPhoto: React.Dispatch<React.SetStateAction<number>>
 }
 
 
-export interface Styles {
+export interface Style {
   photos:Photo[]
   name: string
   }
@@ -18,7 +19,7 @@ export interface Photo {
 
 export type ThumbnailGalleryProps = {
   className?: string
-  photos: Styles["photos"]
+  photos: Style["photos"]
   activePhoto: number
   setActive: React.Dispatch<React.SetStateAction<number>>
 }

@@ -5,7 +5,8 @@ import { ItemDetails } from './InformationPanel/ItemDetails';
 
 export const Overview = () => {
   const [showcasedPhoto,setShowcasedPhoto] = useState(0);
-
+  const [styleSelection,setActiveStyle] = useState(0)
+  const activeStyle = mockItemStyles[styleSelection];
 //IMAGE CAROUSEL
 //-needs to show an image
 //- needs to be able change image
@@ -19,12 +20,15 @@ export const Overview = () => {
     category={mockProduct.category}
     name={mockProduct.name}
     styles={mockItemStyles}
+    activeStyle={activeStyle}
+    setActiveStyle={setActiveStyle}
     showcasedPhoto={showcasedPhoto}
     setShowcasedPhoto={setShowcasedPhoto}/>
 {/* <Carousel
 showcasedPhoto={showcasedPhoto}
 setShowcasedPhoto={setShowcasedPhoto}
-styles={mockItemStyles[0]}/> */}
+style={activeStyle}
+/> */}
   </div>)
 }
 

@@ -8,6 +8,8 @@ export type ItemDetailsProps = {
   styles : Style[]
   showcasedPhoto: number
   setShowcasedPhoto: React.Dispatch<React.SetStateAction<number>>
+  activeStyle: Style
+  setActiveStyle: React.Dispatch<React.SetStateAction<number>>
 }
 
 export type StyleSelectorProps = {
