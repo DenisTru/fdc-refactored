@@ -1,11 +1,46 @@
-export const StyleSelector = ()=> {
+import { StyleSelectorProps } from '.././types/InformationPanel.types'
+import { AiFillCheckCircle } from 'react-icons/ai'
+import './styles/StyleSelector.scss'
+import {v4 as uuidv4} from 'uuid';
+
+
+export const StyleSelector = ({styles, activeStyle}: StyleSelectorProps)=> {
+  const perRow = 4
+  const styleMatrix = styles.reduce((resultArray: typeof styles[], style, index) => {
+    const chunkIndex = Math.floor(index/perRow)
+    if(!resultArray[chunkIndex]) {
+      resultArray[chunkIndex] = [] // start a new row
+    }
+    resultArray[chunkIndex].push(style)
+    return resultArray
+  }, [])
+
   return(
-  <>
-      {/* {
-      styles.map((style) => {
-        return <img className="style-thumbnail" src={style.photos[0].thumbnail_url} alt={style.name} />
-      })
-    } */}
-  </>
+  <div className='row'>
+    {styleMatrix.map((row,index) => {
+      return <div
+      key={index}
+      className="column">
+          {row.map((style,index) => {
+            return (
+            <div key={uuidv4()} className="thumbnail-container">
+            <img
+            key={style.photos[0].thumbnail_url + index}
+            className={activeStyle === style ? "style-thumbnail active": "style-thumbnail" }
+            src={style.photos[0].thumbnail_url} alt={style.name} />
+            {activeStyle === style ? <AiFillCheckCircle className='checkMark' /> : ''}
+            </div>
+            )
+          })}
+        </div>
+    })}
+</div>
   )
 }
+
+// styles.map((style,index) => {
+//   return (
+//     <img className="style-thumbnail" src={style.photos[0].thumbnail_url} alt={style.name} />
+//      )
+//    }
+//   )

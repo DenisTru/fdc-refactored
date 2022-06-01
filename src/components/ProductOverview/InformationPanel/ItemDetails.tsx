@@ -1,12 +1,12 @@
 import {ItemDetailsProps } from '.././types/InformationPanel.types'
 import './styles/ItemDetails.scss'
-
+import { StyleSelector } from './StyleSelector';
 
 export const ItemDetails= ({category, name, styles, showcasedPhoto, setShowcasedPhoto} : ItemDetailsProps) => {
   const activeStyle = styles[showcasedPhoto];
   return (
     <section>
-    <span className='ItemDetails category'>{category}</span>
+    {/* <span className='ItemDetails category'>{category}</span>
     <br/>
     <span className='ItemDetails name'>{name}</span>
     <br/>
@@ -18,7 +18,8 @@ export const ItemDetails= ({category, name, styles, showcasedPhoto, setShowcased
       : <span className="ItemDetails price">${activeStyle.original_price}</span>
     }
     <br/>
-    <span className="ItemDetails style-name">Style {'>'} {activeStyle.name}</span>
+    <span className="ItemDetails style-name">Style {'>'} {activeStyle.name}</span> */}
+    <StyleSelector activeStyle={activeStyle} styles={styles}/>
     </section>
   )
 }

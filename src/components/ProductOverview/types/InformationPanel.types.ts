@@ -10,6 +10,12 @@ export type ItemDetailsProps = {
   setShowcasedPhoto: React.Dispatch<React.SetStateAction<number>>
 }
 
+export type StyleSelectorProps = {
+  styles: Style[]
+  activeStyle: Style
+}
+
+
 export interface Product {
   id:            number;
   campus:        string;

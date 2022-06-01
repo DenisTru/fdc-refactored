@@ -14,7 +14,7 @@ export const Overview = () => {
 
 
   return (
-  <div>
+  <div className='overview'>
     <ItemDetails
     category={mockProduct.category}
     name={mockProduct.name}

@@ -374,7 +374,7 @@ const mockItemStyles = [
            "size":"XXL"
         }
      }
-  }
+  },
 ];
 
 export {
