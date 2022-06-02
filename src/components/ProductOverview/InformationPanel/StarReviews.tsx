@@ -4,7 +4,6 @@ import { StarReviewsProps } from "../types/InformationPanel.types";
 
 
 export const StarReviews = (props: StarReviewsProps) => {
-
   const styles = { "--rating": props.rating} as React.CSSProperties;
 
   return (
