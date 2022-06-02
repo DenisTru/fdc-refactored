@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { SizeQuantitySelectionProps } from "../types/InformationPanel.types"
 import { Select } from '@mantine/core';
-import { sizes } from "@mantine/core/lib/components/ActionIcon/ActionIcon.styles";
-
+import './styles/SizeQuantitySelector.scss'
 export const SizeQuantitySelection = ({skus}: SizeQuantitySelectionProps) => {
 const [skuSize, setSkuSize] = useState('');
 const [quantity, setQuantity] = useState('')
@@ -26,16 +25,15 @@ const selectedSKU = Object.entries(skus).filter((sku) => {
 const quantityAvailable = selectedSKU ? new Array(selectedSKU[1]?.quantity).fill(null).map((_, i) => {
   return {value:(i + 1).toString(), label: (i + 1).toString()}
 }) : ''
-console.log(sizesAvailable)
-console.log(quantityAvailable)
   return (
-    <>
+    <div className="sizequantity-container">
     {
     sizesAvailable.length > 0 ?
     <Select clearable
+      className="select size"
       value={skuSize}
       onChange={(e: string) => setSkuSize(e)}
-      placeholder="Choose a size"
+      placeholder="Size"
       data={sizesAvailable}
     />:
       <OutOfStock sizeOrStock={true} />
@@ -43,14 +41,15 @@ console.log(quantityAvailable)
     {
     quantityAvailable ?
     <Select clearable
+      className="select quantity"
       value={quantity}
       onChange={(e: string) => setQuantity(e)}
-      placeholder="Choose a quantity"
+      placeholder="QTY"
       data={quantityAvailable}
     />:
       <OutOfStock sizeOrStock={false} />
     }
-    </>
+    </div>
   )
 }
 
@@ -61,6 +60,7 @@ type outOfStockProps = {
 const OutOfStock = ({sizeOrStock}: outOfStockProps) => {
   return <Select disabled
   placeholder={sizeOrStock ? "OUT OF STOCK" : '-'}
+  className={sizeOrStock? "select" : "select quantity"}
   data={[{ value: '',label: 'OUT OF STOCK', disabled: true}]}
 />
 }
