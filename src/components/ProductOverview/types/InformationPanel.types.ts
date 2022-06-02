@@ -1,3 +1,5 @@
+//Component Props......
+
 export type StarReviewsProps = {
   rating: number
 }
@@ -18,7 +20,10 @@ export type StyleSelectorProps = {
   setActiveStyle: React.Dispatch<React.SetStateAction<number>>
 }
 
-
+export type SizeQuantitySelectionProps = {
+  skus: Style['skus']
+}
+//JSON Data Props......
 export interface Product {
   id:            number;
   campus:        string;
