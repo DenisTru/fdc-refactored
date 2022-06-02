@@ -8,17 +8,26 @@ const sizesAvailable = Object.entries(skus).filter((size) => {
   }
   return 0
 }).map((item) => {
-    return item[1]?.size!
+  if(item[1]?.size){
+    return item[1]?.size
+  }
+  return '#Error'
 });
 console.log(sizesAvailable)
 
 
   return (
     <>
-   <Select clearable
+    {sizesAvailable.length > 0 ?
+    <Select clearable
       placeholder="Choose a size"
       data={sizesAvailable}
+    />:
+    <Select disabled
+      placeholder="OUT OF STOCK"
+      data={[{ value: '',label: 'OUT OF STOCK', disabled: true}]}
     />
+    }
     </>
   )
 }
