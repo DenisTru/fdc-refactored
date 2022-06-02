@@ -55,7 +55,7 @@ const mockItemStyles = [
      ],
      "skus":{
         "2390357":{
-           "quantity":0,
+           "quantity":5,
            "size":"XS"
         },
         "2390358":{
