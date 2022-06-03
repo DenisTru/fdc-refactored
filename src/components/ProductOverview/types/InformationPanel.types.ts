@@ -7,11 +7,7 @@ export type StarReviewsProps = {
 export type ItemDetailsProps = {
   category: Product["category"]
   name: Product["name"]
-  styles : Style[]
-  showcasedPhoto: number
-  setShowcasedPhoto: React.Dispatch<React.SetStateAction<number>>
   activeStyle: Style
-  setActiveStyle: React.Dispatch<React.SetStateAction<number>>
 }
 
 export type StyleSelectorProps = {

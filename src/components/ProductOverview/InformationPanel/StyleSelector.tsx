@@ -2,9 +2,10 @@ import { StyleSelectorProps } from '.././types/InformationPanel.types'
 import { AiFillCheckCircle } from 'react-icons/ai'
 import './styles/StyleSelector.scss'
 import {v4 as uuidv4} from 'uuid';
+import React from 'react';
 
 
-export const StyleSelector = ({styles, activeStyle, setActiveStyle}: StyleSelectorProps)=> {
+export const StyleSelector = React.memo(({styles, activeStyle, setActiveStyle}: StyleSelectorProps)=> {
   const perRow = 4
   const styleMatrix = styles.reduce((resultArray: typeof styles[], style, index) => {
     const chunkIndex = Math.floor(index/perRow)
@@ -15,21 +16,22 @@ export const StyleSelector = ({styles, activeStyle, setActiveStyle}: StyleSelect
     return resultArray
   }, [])
 
+
   return(
-  <div className='row'>
+  <div className='styleSelector-container'>
     {styleMatrix.map((row,indexRow) => {
       return <div
-      key={indexRow}
+      key={uuidv4()}
       className="column">
           {row.map((style,indexCol) => {
             return (
             <div key={uuidv4()} className="thumbnail-container">
             <img
             onClick={()=>{setActiveStyle(indexRow * 4 + indexCol)}}
-            key={style.photos[0].thumbnail_url + indexCol}
+            key={uuidv4()}
             className={activeStyle === style ? "style-thumbnail active": "style-thumbnail" }
             src={style.photos[0].thumbnail_url} alt={style.name} />
-            {activeStyle === style ? <AiFillCheckCircle className='checkMark' /> : ''}
+            {activeStyle === style ? <AiFillCheckCircle key={uuidv4()}className='checkMark' /> : ''}
             </div>
             )
           })}
@@ -37,7 +39,7 @@ export const StyleSelector = ({styles, activeStyle, setActiveStyle}: StyleSelect
     })}
 </div>
   )
-}
+})
 
 // styles.map((style,index) => {
 //   return (

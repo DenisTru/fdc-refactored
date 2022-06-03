@@ -1,35 +1,30 @@
 import { Carousel } from './ImageCarousel/Carousel'
-import {useState} from 'react';
+import {SetStateAction, useState, useCallback} from 'react';
 import {mockProduct, mockItemStyles} from '../../mockData';
 import { ItemDetails } from './InformationPanel/ItemDetails';
+import { StyleSelector } from './InformationPanel/StyleSelector';
+import { SizeQuantitySelection } from './InformationPanel/SizeQuantitySelection';
+import { StarReviews } from './InformationPanel/StarReviews';
 
 export const Overview = () => {
-  const [showcasedPhoto,setShowcasedPhoto] = useState(0);
-  const [styleSelection,setActiveStyle] = useState(0)
+  const [styleSelection,setActiveStyle] = useState(0);
   const activeStyle = mockItemStyles[styleSelection];
-//IMAGE CAROUSEL
-//-needs to show an image
-//- needs to be able change image
-//future, zoom and full screen modal
-//also need to add a thumbnail gallery component to it, might be better to use global state and seperate them though
-
+  const handleStyleClick = useCallback((e: SetStateAction<number>) => {
+    setActiveStyle(e)
+  },[]);
 
   return (
-  <div className='overview'>
+  <section className='overview'>
+    <StarReviews rating={2.3}/>
     <ItemDetails
     category={mockProduct.category}
     name={mockProduct.name}
-    styles={mockItemStyles}
     activeStyle={activeStyle}
-    setActiveStyle={setActiveStyle}
-    showcasedPhoto={showcasedPhoto}
-    setShowcasedPhoto={setShowcasedPhoto}/>
-{/* <Carousel
-showcasedPhoto={showcasedPhoto}
-setShowcasedPhoto={setShowcasedPhoto}
-style={activeStyle}
-/> */}
-  </div>)
+    />
+    <StyleSelector styles={mockItemStyles} activeStyle={activeStyle} setActiveStyle={handleStyleClick}/>
+    <SizeQuantitySelection skus={activeStyle.skus}/>
+    {/* <Carousel style={activeStyle}/> */}
+  </section>)
 }
 
 

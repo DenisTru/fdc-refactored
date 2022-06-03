@@ -2,8 +2,6 @@
 //carousel only needs photos of the style to display
 export type CarouselProps = {
   style: Style
-  showcasedPhoto: number
-  setShowcasedPhoto: React.Dispatch<React.SetStateAction<number>>
 }
 
 

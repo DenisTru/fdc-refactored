@@ -2,8 +2,11 @@ import { CarouselProps } from '../types/Carousel.types'
 import './styles/Carousel.scss'
 import { BsFillArrowRightSquareFill } from 'react-icons/bs'
 import { ThumbnailGallery } from './ThumbnailGallery';
+import { useState } from 'react';
 
-export const Carousel = ({style,showcasedPhoto, setShowcasedPhoto}: CarouselProps) => {
+export const Carousel = ({style}: CarouselProps) => {
+  const [showcasedPhoto,setShowcasedPhoto] = useState(0);
+
   return (
 <div className="carousel flex">
  <ThumbnailGallery
