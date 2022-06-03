@@ -33,8 +33,12 @@ const selectedSKU = Object.entries(skus).filter((sku) => {
 })[0]
 
 const quantityAvailable = selectedSKU ? new Array(selectedSKU[1]?.quantity).fill(null).map((_, i) => {
-  return {value:(i + 1).toString(), label: (i + 1).toString()}
+    return {value:(i + 1).toString(), label: (i + 1).toString()}
+}).filter((_item, index) => {
+  return index < 15
 }) : ''
+
+console.log(quantityAvailable)
 
 return (
     <div className="sizequantity-container">
