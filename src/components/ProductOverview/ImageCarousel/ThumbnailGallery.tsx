@@ -8,7 +8,7 @@ export const ThumbnailGallery = ({photos, activePhoto, setActive} : ThumbnailGal
 
   useEffect(() => {
     if (null !== imageRef.current) {
-      imageRef.current.scrollIntoView({behavior:'smooth', block: 'center'});
+      imageRef.current.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
     }
     if(prevActivePhoto === activePhoto) {
       setActive(0)

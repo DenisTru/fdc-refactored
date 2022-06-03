@@ -6,8 +6,14 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-          <Overview></Overview>
+        navbar here
       </header>
+      <body className="App-body">
+      <Overview></Overview>
+      </body>
+      <footer className='App-footer'>
+        footer here
+      </footer>
     </div>
   );
 }

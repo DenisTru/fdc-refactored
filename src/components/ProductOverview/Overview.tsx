@@ -16,7 +16,9 @@ export const Overview = () => {
 
   return (
   <section className='overview'>
+    <div className="carousel-wrapper">
     <Carousel style={activeStyle}/>
+    </div>
     <div className="infoPanel">
     <StarReviews rating={2.3}/>
     <ItemDetails

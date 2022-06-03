@@ -2,24 +2,24 @@ section {
   text-align: start;
 }
 
-.ItemDetails.category {
+.itemDetails.category {
   font-size: large;
 }
 
-.ItemDetails.name {
+.itemDetails.name {
   font-size: larger;
 }
-.ItemDetails.price {
+.itemDetails.price {
   font-size:medium;
   font-weight: 300;
 }
-.ItemDetails.price.sale{
+.itemDetails.price.sale{
   padding: 10px;
   text-decoration: line-through;
   text-decoration-color: rgb(107, 105, 105);
   text-decoration-thickness: 3px;
   color:rgb(197, 205, 205);
 }
-.ItemDetails.style-name{
+.itemDetails.style-name{
   font-size: medium;
 }

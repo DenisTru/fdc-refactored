@@ -1,6 +1,23 @@
 .overview {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  background-color: #282c34;
+  min-height: 800px;
+  display: flex;
+  align-items:flex-start;
+  justify-content:center;
+  min-width: 90vw;
+  padding-top: 50px;
+  color: white;
+}
+
+.carousel-wrapper {
+  display: inline-block;
   width: 600px;
+}
+
+.infoPanel {
+  display:inline;
+  padding-left: 100px;
+  width: 350px;
 }
