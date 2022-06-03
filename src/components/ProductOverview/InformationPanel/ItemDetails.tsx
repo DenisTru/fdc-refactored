@@ -10,8 +10,10 @@ export const ItemDetails= ({category, name, activeStyle} : ItemDetailsProps) => 
     <br/>
     {
       activeStyle.sale_price ? <>
+      <div>
       <span className="itemDetails price">${activeStyle.sale_price}</span>
       <span className="itemDetails price sale">${activeStyle.original_price}</span>
+      </div>
       </>
       : <span className="itemDetails price">${activeStyle.original_price}</span>
     }

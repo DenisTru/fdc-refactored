@@ -1,16 +1,20 @@
 section {
   text-align: start;
 }
-
+.itemDetails-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 .itemDetails.category {
-  font-size: large;
+  font-size: larger;
 }
 
 .itemDetails.name {
-  font-size: larger;
+  font-size: x-large;
 }
 .itemDetails.price {
-  font-size:medium;
+  font-size:large;
   font-weight: 300;
 }
 .itemDetails.price.sale{

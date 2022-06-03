@@ -1,6 +1,7 @@
 import React, {useRef, useEffect} from 'react'
 import { ThumbnailGalleryProps } from '../types/Carousel.types'
 import { usePrevious } from '../../../utils/usePrevious';
+import './styles/ThumbnailGallery.scss'
 
 export const ThumbnailGallery = ({photos, activePhoto, setActive} : ThumbnailGalleryProps) => {
   const imageRef = useRef<HTMLImageElement>(null);
