@@ -5,6 +5,7 @@ import { ItemDetails } from './InformationPanel/ItemDetails';
 import { StyleSelector } from './InformationPanel/StyleSelector';
 import { SizeQuantitySelection } from './InformationPanel/SizeQuantitySelection';
 import { StarReviews } from './InformationPanel/StarReviews';
+import './Overview.scss';
 
 export const Overview = () => {
   const [styleSelection,setActiveStyle] = useState(0);
@@ -15,6 +16,8 @@ export const Overview = () => {
 
   return (
   <section className='overview'>
+    <Carousel style={activeStyle}/>
+    <div className="infoPanel">
     <StarReviews rating={2.3}/>
     <ItemDetails
     category={mockProduct.category}
@@ -23,7 +26,7 @@ export const Overview = () => {
     />
     <StyleSelector styles={mockItemStyles} activeStyle={activeStyle} setActiveStyle={handleStyleClick}/>
     <SizeQuantitySelection skus={activeStyle.skus}/>
-    {/* <Carousel style={activeStyle}/> */}
+    </div>
   </section>)
 }
 

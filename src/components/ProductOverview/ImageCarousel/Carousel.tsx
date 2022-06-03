@@ -8,15 +8,14 @@ export const Carousel = ({style}: CarouselProps) => {
   const [showcasedPhoto,setShowcasedPhoto] = useState(0);
 
   return (
-<div className="carousel flex">
+<div className="carousel ">
  <ThumbnailGallery
-  className="flex-child"
   photos={style.photos}
   activePhoto={showcasedPhoto}
   setActive={setShowcasedPhoto}/>
-<div className ="carousel-container flex-child">
+  <div className ="imageshowcase-container">
 {style.photos.map((photo, index) => {
-  return <div className={index === showcasedPhoto ? 'active':'carousel-slide'}>
+  return <div className={index === showcasedPhoto ? "carousel-slide-active":'carousel-slide'}>
     <img className="carousel fade" src={photo.url} alt={style.name}></img>
   </div>
 })}
@@ -26,7 +25,6 @@ export const Carousel = ({style}: CarouselProps) => {
   </div>
   )
 }
-
 /*  {<img className="carousel showcase" src={style.photos[showcasedPhoto].url } alt={style.name}></img>}
   <div className='carousel-dots-container'>
   {style.photos.map((_photo,index) => {

@@ -1,11 +1,21 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { SizeQuantitySelectionProps } from "../types/InformationPanel.types"
 import { Select } from '@mantine/core';
 import './styles/SizeQuantitySelector.scss'
+import { usePrevious } from '../../../utils/usePrevious';
+
 export const SizeQuantitySelection = ({skus}: SizeQuantitySelectionProps) => {
+const prevActiveSkus = usePrevious(skus);
 const [skuSize, setSkuSize] = useState('');
 const [quantity, setQuantity] = useState('')
-//ONLY STOCKED SKUS available
+//if skus change reset the size and quanity
+useEffect(()=> {
+  if(prevActiveSkus !== skus) {
+    setQuantity('');
+    setSkuSize('');
+  }
+}, [prevActiveSkus, skus]);
+
 const sizesAvailable  = Object.entries(skus).filter((sku) => {
   if(sku[1]?.quantity) {
     return sku[1]?.quantity;
@@ -25,10 +35,10 @@ const selectedSKU = Object.entries(skus).filter((sku) => {
 const quantityAvailable = selectedSKU ? new Array(selectedSKU[1]?.quantity).fill(null).map((_, i) => {
   return {value:(i + 1).toString(), label: (i + 1).toString()}
 }) : ''
-  return (
+
+return (
     <div className="sizequantity-container">
-    {
-    sizesAvailable.length > 0 ?
+    {sizesAvailable.length > 0 ?
     <Select clearable
       className="select size"
       value={skuSize}
@@ -36,10 +46,8 @@ const quantityAvailable = selectedSKU ? new Array(selectedSKU[1]?.quantity).fill
       placeholder="Size"
       data={sizesAvailable}
     />:
-      <OutOfStock sizeOrStock={true} />
-    }
-    {
-    quantityAvailable ?
+      <OutOfStock sizeOrStock={true} />}
+    {quantityAvailable ?
     <Select clearable
       className="select quantity"
       value={quantity}
@@ -47,8 +55,7 @@ const quantityAvailable = selectedSKU ? new Array(selectedSKU[1]?.quantity).fill
       placeholder="QTY"
       data={quantityAvailable}
     />:
-      <OutOfStock sizeOrStock={false} />
-    }
+      <OutOfStock sizeOrStock={false} />}
     </div>
   )
 }

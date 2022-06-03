@@ -1,5 +1,6 @@
 import React, {useRef, useEffect} from 'react'
 import { ThumbnailGalleryProps } from '../types/Carousel.types'
+import { usePrevious } from '../../../utils/usePrevious';
 
 export const ThumbnailGallery = ({photos, activePhoto, setActive} : ThumbnailGalleryProps) => {
   const imageRef = useRef<HTMLImageElement>(null);
@@ -12,7 +13,6 @@ export const ThumbnailGallery = ({photos, activePhoto, setActive} : ThumbnailGal
     if(prevActivePhoto === activePhoto) {
       setActive(0)
     }
-
   });
 
   return (
@@ -28,11 +28,5 @@ export const ThumbnailGallery = ({photos, activePhoto, setActive} : ThumbnailGal
   )
 }
 
-const usePrevious = <T extends any>(value: T): T | any => {
-  const ref = useRef<T>();
-  useEffect(() => {
-    ref.current = value;
-  });
-  return ref.current;
-};
+
 //TODO: onclick handler, resize, scroll, styling

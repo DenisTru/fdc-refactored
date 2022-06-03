@@ -16,7 +16,6 @@ export const StyleSelector = React.memo(({styles, activeStyle, setActiveStyle}: 
     return resultArray
   }, [])
 
-
   return(
   <div className='styleSelector-container'>
     {styleMatrix.map((row,indexRow) => {
