@@ -8,13 +8,14 @@ export const SizeQuantitySelection = ({skus}: SizeQuantitySelectionProps) => {
 const prevActiveSkus = usePrevious(skus);
 const [skuSize, setSkuSize] = useState('');
 const [quantity, setQuantity] = useState('')
+const prevActiveSize = usePrevious(skuSize);
 //if skus change reset the size and quanity
 useEffect(()=> {
   if(prevActiveSkus !== skus) {
-    setQuantity('');
+    setQuantity('1');
     setSkuSize('');
   }
-}, [prevActiveSkus, skus]);
+}, [prevActiveSkus,prevActiveSize, skus]);
 
 const sizesAvailable  = Object.entries(skus).filter((sku) => {
   if(sku[1]?.quantity) {
@@ -38,7 +39,6 @@ const quantityAvailable = selectedSKU ? new Array(selectedSKU[1]?.quantity).fill
   return index < 15
 }) : ''
 
-console.log(quantityAvailable)
 
 return (
     <div className="sizequantity-container">

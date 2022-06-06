@@ -5,6 +5,7 @@ import { ItemDetails } from './InformationPanel/ItemDetails';
 import { StyleSelector } from './InformationPanel/StyleSelector';
 import { SizeQuantitySelection } from './InformationPanel/SizeQuantitySelection';
 import { StarReviews } from './InformationPanel/StarReviews';
+import { Checkout } from './InformationPanel/Checkout';
 import './Overview.scss';
 
 export const Overview = () => {
@@ -28,6 +29,7 @@ export const Overview = () => {
     />
     <StyleSelector styles={mockItemStyles} activeStyle={activeStyle} setActiveStyle={handleStyleClick}/>
     <SizeQuantitySelection skus={activeStyle.skus}/>
+    <Checkout />
     </div>
   </section>)
 }

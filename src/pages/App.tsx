@@ -8,9 +8,9 @@ function App() {
       <header className="App-header">
         navbar here
       </header>
-      <body className="App-body">
+      <div className="App-body">
       <Overview></Overview>
-      </body>
+      </div>
       <footer className='App-footer'>
         footer here
       </footer>

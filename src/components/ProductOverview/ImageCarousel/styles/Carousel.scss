@@ -1,7 +1,7 @@
 * {box-sizing:border-box}
 .carousel{
   display: grid;
-  grid-template-columns: .5fr 1.5fr;
+  grid-template-columns: .4fr 1.6fr;
   gap: 0px 0px;
   grid-template-areas:
     "thumbnailGallery-container imageshowcase-container";
@@ -58,7 +58,6 @@
 .fade {
   animation-name: fade;
   animation-duration: 1.5s;
-
 }
 
 @keyframes fade {

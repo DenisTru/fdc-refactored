@@ -3,6 +3,7 @@ import './styles/Carousel.scss'
 import { BsFillArrowRightSquareFill } from 'react-icons/bs'
 import { ThumbnailGallery } from './ThumbnailGallery';
 import { useState } from 'react';
+import {v4 as uuidv4} from 'uuid';
 
 export const Carousel = ({style}: CarouselProps) => {
   const [showcasedPhoto,setShowcasedPhoto] = useState(0);
@@ -15,7 +16,7 @@ export const Carousel = ({style}: CarouselProps) => {
   setActive={setShowcasedPhoto}/>
   <div className ="imageshowcase-container">
 {style.photos.map((photo, index) => {
-  return <div className={index === showcasedPhoto ? "carousel-slide-active":'carousel-slide'}>
+  return <div key={uuidv4()} className={index === showcasedPhoto ? "carousel-slide-active":'carousel-slide'}>
     <img className="carousel fade" src={photo.url} alt={style.name}></img>
   </div>
 })}
