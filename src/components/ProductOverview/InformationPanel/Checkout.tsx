@@ -16,10 +16,10 @@ export const Checkout = () => {
       setTimeout(()=> {
         setLoading(false);
         setCheckoutSuccessState(true);
-      },1700)
+      },1200)
       setTimeout(()=> {
         setCheckoutSuccessState(false);
-      },3000)
+      },2400)
       }
     }
     rightIcon={checkoutSuccessState ? <IoBagCheckOutline /> : ''}
