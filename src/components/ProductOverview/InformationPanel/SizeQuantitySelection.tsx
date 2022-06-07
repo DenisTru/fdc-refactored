@@ -3,11 +3,14 @@ import { SizeQuantitySelectionProps } from "../types/InformationPanel.types"
 import { Select } from '@mantine/core';
 import './styles/SizeQuantitySelector.scss'
 import { usePrevious } from '../../../utils/usePrevious';
+import { Checkout } from './Checkout';
 
 export const SizeQuantitySelection = ({skus}: SizeQuantitySelectionProps) => {
-const prevActiveSkus = usePrevious(skus);
 const [skuSize, setSkuSize] = useState('');
-const [quantity, setQuantity] = useState('')
+const [quantity, setQuantity] = useState('');
+const [selectASize, setSelectASize] = useState(false);
+const [checkoutSuccessState, setCheckoutSuccessState] = useState(false)
+const prevActiveSkus = usePrevious(skus);
 const prevActiveSize = usePrevious(skuSize);
 //if skus change reset the size and quanity
 useEffect(()=> {
@@ -15,7 +18,10 @@ useEffect(()=> {
     setQuantity('1');
     setSkuSize('');
   }
-}, [prevActiveSkus,prevActiveSize, skus]);
+  if((prevActiveSize === null || prevActiveSize === '') && prevActiveSize !== skuSize) {
+    setSelectASize(false);
+  }
+}, [prevActiveSkus, prevActiveSize, skus, skuSize]);
 
 const sizesAvailable  = Object.entries(skus).filter((sku) => {
   if(sku[1]?.quantity) {
@@ -26,7 +32,7 @@ const sizesAvailable  = Object.entries(skus).filter((sku) => {
     if(item[1]?.size){
     return {value: item[1]?.size, label: item[1]?.size }
     }
-      return ''
+    return ''
     });
 
 const selectedSKU = Object.entries(skus).filter((sku) => {
@@ -39,28 +45,47 @@ const quantityAvailable = selectedSKU ? new Array(selectedSKU[1]?.quantity).fill
   return index < 15
 }) : ''
 
+const selectASizeHandler = () => {
+  skuSize === '' || skuSize === null ?
+  setSelectASize(true):
+  setSelectASize(false);
+}
 
 return (
+  <>
     <div className="sizequantity-container">
     {sizesAvailable.length > 0 ?
-    <Select clearable
+    <Select
+      disabled={checkoutSuccessState ? true : false}
       className="select size"
       value={skuSize}
       onChange={(e: string) => setSkuSize(e)}
       placeholder="Size"
       data={sizesAvailable}
+      error={selectASize ? <p> Please select a size !</p> : ''}
+
     />:
       <OutOfStock sizeOrStock={true} />}
     {quantityAvailable ?
-    <Select clearable
+    <Select
+      disabled={checkoutSuccessState ? true : false}
       className="select quantity"
       value={quantity}
       onChange={(e: string) => setQuantity(e)}
       placeholder="QTY"
       data={quantityAvailable}
-    />:
-      <OutOfStock sizeOrStock={false} />}
+    />: <OutOfStock sizeOrStock={false} />}
     </div>
+    {
+     sizesAvailable.length > 0 ?
+     <Checkout
+     size={skuSize}
+     quantity={quantity}
+     selectASizeHandler={selectASizeHandler}
+     checkoutSuccessState={checkoutSuccessState}
+     setCheckoutSuccessState={setCheckoutSuccessState}/>:''
+    }
+  </>
   )
 }
 
@@ -70,8 +95,8 @@ type outOfStockProps = {
 }
 const OutOfStock = ({sizeOrStock}: outOfStockProps) => {
   return <Select disabled
-  placeholder={sizeOrStock ? "OUT OF STOCK" : '-'}
+  placeholder={sizeOrStock ? "OOS" : '-'}
   className={sizeOrStock? "select" : "select quantity"}
-  data={[{ value: '',label: 'OUT OF STOCK', disabled: true}]}
+  data={[{ value: '',label: 'OOS', disabled: true}]}
 />
 }

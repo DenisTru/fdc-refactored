@@ -5,12 +5,14 @@ import { ItemDetails } from './InformationPanel/ItemDetails';
 import { StyleSelector } from './InformationPanel/StyleSelector';
 import { SizeQuantitySelection } from './InformationPanel/SizeQuantitySelection';
 import { StarReviews } from './InformationPanel/StarReviews';
-import { Checkout } from './InformationPanel/Checkout';
 import './Overview.scss';
 
 export const Overview = () => {
   const [styleSelection,setActiveStyle] = useState(0);
+
   const activeStyle = mockItemStyles[styleSelection];
+
+
   const handleStyleClick = useCallback((e: SetStateAction<number>) => {
     setActiveStyle(e)
   },[]);
@@ -28,8 +30,9 @@ export const Overview = () => {
     activeStyle={activeStyle}
     />
     <StyleSelector styles={mockItemStyles} activeStyle={activeStyle} setActiveStyle={handleStyleClick}/>
-    <SizeQuantitySelection skus={activeStyle.skus}/>
-    <Checkout />
+    <SizeQuantitySelection
+    skus={activeStyle.skus}
+    />
     </div>
   </section>)
 }

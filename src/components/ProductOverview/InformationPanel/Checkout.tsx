@@ -2,24 +2,32 @@ import { Button } from "@mantine/core"
 import { useState } from "react"
 import {IoBagCheckOutline} from 'react-icons/io5'
 import './styles/Checkout.scss'
+import { CheckoutProps } from "../types/InformationPanel.types"
 
-export const Checkout = () => {
+export const Checkout = ({size, quantity, selectASizeHandler, checkoutSuccessState, setCheckoutSuccessState}:CheckoutProps) => {
   const [loading,setLoading] = useState(false);
-  const [checkoutSuccessState, setCheckoutSuccessState] = useState(false)
 
   return (
     <div className ="checkout-container">
-    <Button
+    {<Button
     loading={loading}
     onClick={()=>{
-      setLoading(true);
-      setTimeout(()=> {
-        setLoading(false);
+      if (!size){
+        selectASizeHandler();
+      }
+      else{
+        selectASizeHandler();
+        setLoading(true);
         setCheckoutSuccessState(true);
-      },1200)
-      setTimeout(()=> {
-        setCheckoutSuccessState(false);
-      },2400)
+        setTimeout(()=> {
+          setLoading(false);
+        },1200)
+        setTimeout(()=> {
+          setCheckoutSuccessState(false);
+        },2400)
+
+      }
+
       }
     }
     rightIcon={checkoutSuccessState ? <IoBagCheckOutline /> : ''}
@@ -27,7 +35,7 @@ export const Checkout = () => {
     variant="default"
     size="lg">
       Checkout
-    </Button>
+    </Button>}
     </div>
   )
 }

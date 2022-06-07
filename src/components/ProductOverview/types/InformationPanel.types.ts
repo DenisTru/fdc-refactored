@@ -1,5 +1,6 @@
-//Component Props......
+import { Dispatch, SetStateAction } from "react"
 
+//Component Props......
 export type StarReviewsProps = {
   rating: number
 }
@@ -19,6 +20,16 @@ export type StyleSelectorProps = {
 export type SizeQuantitySelectionProps = {
   skus: Style['skus']
 }
+
+export type CheckoutProps = {
+  size: string
+  quantity: string
+  selectASizeHandler: () => void
+  setCheckoutSuccessState: Dispatch<SetStateAction<boolean>>
+  checkoutSuccessState: boolean
+}
+
+
 //JSON Data Props......
 export interface Product {
   id:            number;
