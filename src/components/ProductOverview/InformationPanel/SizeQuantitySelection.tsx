@@ -12,12 +12,15 @@ const [selectASize, setSelectASize] = useState(false);
 const [checkoutSuccessState, setCheckoutSuccessState] = useState(false)
 const prevActiveSkus = usePrevious(skus);
 const prevActiveSize = usePrevious(skuSize);
-//if skus change reset the size and quanity
+
 useEffect(()=> {
+  //if style changes, reset these state items
   if(prevActiveSkus !== skus) {
     setQuantity('1');
     setSkuSize('');
+    setSelectASize(false)
   }
+  //if size changes from default to an item, remove error
   if((prevActiveSize === null || prevActiveSize === '') && prevActiveSize !== skuSize) {
     setSelectASize(false);
   }
@@ -46,7 +49,7 @@ const quantityAvailable = selectedSKU ? new Array(selectedSKU[1]?.quantity).fill
 }) : ''
 
 const selectASizeHandler = () => {
-  skuSize === '' || skuSize === null ?
+  skuSize === '' ?
   setSelectASize(true):
   setSelectASize(false);
 }
@@ -63,7 +66,6 @@ return (
       placeholder="Size"
       data={sizesAvailable}
       error={selectASize ? <p> Please select a size !</p> : ''}
-
     />:
       <OutOfStock sizeOrStock={true} />}
     {quantityAvailable ?

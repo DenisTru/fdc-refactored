@@ -6,13 +6,13 @@ import {v4 as uuidv4} from 'uuid';
 
 export const ThumbnailGallery = ({photos, activePhoto, setActive} : ThumbnailGalleryProps) => {
   const imageRef = useRef<HTMLImageElement>(null);
-  const prevActivePhoto = usePrevious(activePhoto);
+  const prevPhotos = usePrevious(photos)
 
   useEffect(() => {
     if (null !== imageRef.current) {
       imageRef.current.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
     }
-    if(prevActivePhoto === activePhoto) {
+    if(prevPhotos !== photos) {
       setActive(0)
     }
   });
