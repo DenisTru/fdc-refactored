@@ -1,3 +1,4 @@
+import { Dispatch, SetStateAction } from "react"
 
 
 //carousel only needs photos of the style to display
@@ -13,8 +14,11 @@ export type ThumbnailGalleryProps = {
 }
 
 export type ImageModalProps = {
+  showcasedPhoto: number
   showcasedPhotoUrl: string
+  photos: Style["photos"]
   setShowcasedPhotoUrl: React.Dispatch<React.SetStateAction<string>>
+  setShowcasedPhoto: Dispatch<SetStateAction<number>>
 }
 
 export interface Style {

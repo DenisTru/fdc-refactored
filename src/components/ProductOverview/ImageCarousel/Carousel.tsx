@@ -36,7 +36,13 @@ export const Carousel = ({style}: CarouselProps) => {
   ''
 }
   </div>
-  {showcasedPhotoURL && <ImageModal showcasedPhotoUrl={showcasedPhotoURL} setShowcasedPhotoUrl={setShowcasedPhotoURL} />}
+  {showcasedPhotoURL &&
+  <ImageModal
+  showcasedPhotoUrl={showcasedPhotoURL}
+  showcasedPhoto={showcasedPhoto}
+  photos={style.photos}
+  setShowcasedPhotoUrl={setShowcasedPhotoURL}
+  setShowcasedPhoto={setShowcasedPhoto} />}
   </div>
   )
 }
