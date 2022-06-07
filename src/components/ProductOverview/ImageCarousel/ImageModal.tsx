@@ -1,6 +1,6 @@
 import { ImageModalProps } from "../types/Carousel.types"
 import './styles/Carousel.scss'
-
+import { motion } from "framer-motion"
 
 export const ImageModal = ({showcasedPhotoUrl, setShowcasedPhotoUrl}: ImageModalProps) => {
 
@@ -11,8 +11,14 @@ export const ImageModal = ({showcasedPhotoUrl, setShowcasedPhotoUrl}: ImageModal
   }
 
   return (
-    <div className="backdrop" onClick={(e)=>handleClick(e)}>
-      <img src={showcasedPhotoUrl} alt="enlarged pic" />
-    </div>
+    <motion.div className="backdrop" onClick={(e)=>handleClick(e)}
+      initial={{opacity: 0}}
+      animate={{opacity: 1}}
+    >
+      <motion.img src={showcasedPhotoUrl} alt="enlarged pic"
+      initial={{ y: '-90vh'}}
+      animate={{ y: '0vh'}}
+      />
+    </motion.div>
   )
 }
