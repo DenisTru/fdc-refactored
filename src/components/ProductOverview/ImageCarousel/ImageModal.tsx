@@ -16,7 +16,6 @@ export const ImageModal = ({showcasedPhotoUrl, setShowcasedPhotoUrl, showcasedPh
       initial={{opacity: 0}}
       animate={{opacity: 1}}
     >
-      <div>
       <motion.img src={showcasedPhotoUrl} alt="enlarged pic"
       initial={{ y: '-90vh'}}
       animate={{ y: '0vh'}}
@@ -30,7 +29,7 @@ export const ImageModal = ({showcasedPhotoUrl, setShowcasedPhotoUrl, showcasedPh
           }}/>
         })}
       </div>
-      </div>
+
       { showcasedPhoto !== 0 ?
       <BsFillArrowRightSquareFill
       className="previous"

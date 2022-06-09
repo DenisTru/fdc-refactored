@@ -79,11 +79,13 @@
   z-index: 100;
 }
 
+
 .backdrop img {
   display: block;
-  max-width: 70vw;
-  max-height: 80vh;
+  max-width: 95%;
+  max-height: 95%;
   margin: 60px auto;
+  max-height: 90%;
   box-shadow: 3px 5px 7px rgba(0,0,0,0.5);
   border: 3px solid white;
   user-select: none;
@@ -92,11 +94,12 @@
   -webkit-user-select: none;
   -o-user-select: none;
 }
-//expanded model dots
+// expanded model dots
 .carousel-dots-container{
+  padding-top: 15px;
   position: absolute;
-  top: 70%;
-  left: 43%;
+  top: 90%;
+  left: 47.5%;
   margin: 60px auto;
 }
 .dot {
