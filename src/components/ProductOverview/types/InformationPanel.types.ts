@@ -29,6 +29,11 @@ export type CheckoutProps = {
   checkoutSuccessState: boolean
 }
 
+export type DescriptionFooterProps = {
+  slogan: string
+  description: string
+}
+
 
 //JSON Data Props......
 export interface Product {

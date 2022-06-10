@@ -35,7 +35,7 @@ export const Overview = () => {
     skus={activeStyle.skus}
     />
     </div>
-    <DescriptionFooter />
+    <DescriptionFooter slogan={mockProduct.slogan} description={mockProduct.description} />
   </section>)
 }
 
