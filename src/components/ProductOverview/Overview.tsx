@@ -5,6 +5,7 @@ import { ItemDetails } from './InformationPanel/ItemDetails';
 import { StyleSelector } from './InformationPanel/StyleSelector';
 import { SizeQuantitySelection } from './InformationPanel/SizeQuantitySelection';
 import { StarReviews } from './InformationPanel/StarReviews';
+import { DescriptionFooter } from './DescriptionFooter';
 import './Overview.scss';
 
 export const Overview = () => {
@@ -34,6 +35,7 @@ export const Overview = () => {
     skus={activeStyle.skus}
     />
     </div>
+    <DescriptionFooter />
   </section>)
 }
 

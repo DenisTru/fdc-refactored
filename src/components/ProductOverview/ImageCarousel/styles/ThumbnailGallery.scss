@@ -1,12 +1,13 @@
 //-----Thumbnail Gallery Styles ---------
 
 .thumbnailGallery-container{
-  width: 100%;
+  width: 125px;
   height:610px;
   overflow: scroll;
   padding-top: 10px;
   padding-left: 8px;
   grid-area: thumbnailGallery-container;
+  user-select: none;
 }
 .thumbnailGallery-container::-webkit-scrollbar {
   width: 0px;
