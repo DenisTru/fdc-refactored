@@ -1,6 +1,8 @@
 .ratings-panel{
   text-align:start;
   box-shadow: 0 14px 28px rgba(0,0,0, 0.25), 0 10px 10px rgba(0,0,0,0.22);
+
+  padding: 10px;
 }
 
 .ratings-panel h1 {
@@ -31,21 +33,25 @@ margin-bottom: 1px;
 .star-rating{
   vertical-align:top;
 }
-
+.avg-star-ratings{
+  padding: 0px 0px 40px 0px;
+}
 .avg-star-ratings li{
   text-align: center;
   list-style: none;
-  padding: 5px;
+  padding: 5px 0px 0px 0px;
+}
+.avg-trait-ratings li{
+  list-style: none;
 }
 
 .star-bar{
 text-align:left;
 background: #353b48;
 display: inline-block;
-height: 20px;
+height: 10px;
 width: 245px;
-border: 1px solid rgba(0,0,0,0.3);
-box-shadow: 0 14px 28px rgba(0,0,0, 0.25), 0 10px 10px rgba(0,0,0,0.10);
+box-shadow: 0 14px 28px rgba(0,0,0, 0.15), 0 10px 10px rgba(0,0,0,0.10);
 overflow: hidden;
 }
 
@@ -83,4 +89,20 @@ overflow: hidden;
   width: var(--rating);
   border: 1px solid rgba(0,0,0,0.3);
   background: #fff;
+}
+
+.trait-rating {
+
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0 10px 0px;
+}
+.scale {
+  margin: 0 10px 0 0px;
+  width: 50px;
+  height: 10px;
+  background: #f9f9fa;
+  box-shadow: 0 14px 28px rgba(0,0,0, 0.5), 0 10px 10px rgba(0,0,0,0.35);
 }

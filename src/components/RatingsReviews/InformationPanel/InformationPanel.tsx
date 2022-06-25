@@ -3,7 +3,6 @@ import {StarReviews} from './StarReviews'
 
 
 export const InformationPanel = () => {
-
   return (
     <aside className="ratings-panel">
     <h1>Rating & Reviews</h1>
@@ -17,10 +16,20 @@ export const InformationPanel = () => {
       <li><h5>2 stars</h5> <StarBar rating={'10%'} starName={'star2'}/></li>
       <li><h5>1 stars</h5> <StarBar rating={'5%'} starName={'star1'}/></li>
     </div>
-
-
-    {/* <div>Size</div>
-    <div>-------!------- </div> */}
+    <div className='avg-trait-ratings'>
+    <li>
+    <h5>Size</h5>
+    <TraitsBar rating={"3.5"} />
+    </li>
+    <li>
+    <h5>Comfort</h5>
+    <TraitsBar rating={"3.5"} />
+    </li>
+    <li>
+    <h5>Quality</h5>
+    <TraitsBar rating={"3.5"} />
+    </li>
+    </div>
     </aside>
   )
 };
@@ -29,8 +38,6 @@ type StarBarProps = {
   starName: 'star1'|'star2'|'star3'|'star4'|'star5'
   rating: string
 }
-
-
 const StarBar = ({starName, rating}: StarBarProps) => {
   const styles = { "--rating": rating} as React.CSSProperties;
 
@@ -39,4 +46,17 @@ const StarBar = ({starName, rating}: StarBarProps) => {
       <span style={styles} className={starName.toString()}/>
     </span>
   )
+}
+
+type TraitsBarProps = {
+  rating: string
+}
+const TraitsBar = ({rating}: TraitsBarProps) => {
+ return (<div className="trait-rating">
+ <span className="scale"></span>
+ <span className="scale"></span>
+ <span className="scale"></span>
+ <span className="scale"></span>
+ <span className="scale"></span>
+ </div>)
 }
