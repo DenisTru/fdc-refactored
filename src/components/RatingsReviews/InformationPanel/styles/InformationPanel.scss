@@ -1,6 +1,5 @@
 .ratings-panel{
   text-align:start;
-  color: #fff;
   box-shadow: 0 14px 28px rgba(0,0,0, 0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
@@ -18,6 +17,7 @@ margin-bottom: 1px;
   margin: 0px;
   display: inline;
   text-decoration: underline;
+  color: #999999;
 }
 .ratings-panel p {
   color: #999999;
@@ -52,35 +52,35 @@ overflow: hidden;
 .star5 {
   display: inline-block;
   height: 18px;
-  width: 90%;
+  width: var(--rating);
   border: 1px solid rgba(0,0,0,0.3);
   background: #fff;
 }
 .star4 {
   display: inline-block;
   height: 18px;
-  width: 75%;
+  width: var(--rating);
   border: 1px solid rgba(0,0,0,0.3);
   background: #fff;
 }
 .star3 {
   display: inline-block;
   height: 18px;
-  width: 60%;
+  width: var(--rating);
   border: 1px solid rgba(0,0,0,0.3);
   background: #fff;
 }
 .star2 {
   display: inline-block;
   height: 18px;
-  width: 40%;
+  width: var(--rating);
   border: 1px solid rgba(0,0,0,0.3);
   background: #fff;
 }
 .star1 {
   display: inline-block;
   height: 18px;
-  width: 20%;
+  width: var(--rating);
   border: 1px solid rgba(0,0,0,0.3);
   background: #fff;
 }
