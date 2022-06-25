@@ -14,8 +14,8 @@
   gap: 0px 0px;
   grid-template-areas:
     ". carousel-wrapper infoPanel"
-    ". description-footer ."
-
+    ". description-footer .";
+    max-width: 72rem;
 }
 
 .carousel-wrapper {

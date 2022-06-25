@@ -1,5 +1,6 @@
 import './styles/App.scss';
 import { Overview } from '../components/ProductOverview/Overview'
+import { RatingReviews } from '../components/RatingsReviews/RatingReviews';
 import { NavigationBar } from '../components/Navbar/NavigationBar'
 import { About } from './About'
 import { Home } from './Home'
@@ -13,7 +14,7 @@ function App() {
       </header>
       <div className="App-body">
       <Routes>
-      <Route path="/" element={<Overview></Overview>} />
+      <Route path="/" element={<RatingReviews/>} />
       <Route path="/Home" element={<Home/>} />
       <Route path="/About" element={<About />} />
       </Routes>

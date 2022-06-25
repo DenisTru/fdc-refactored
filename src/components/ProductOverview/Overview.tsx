@@ -10,10 +10,7 @@ import './Overview.scss';
 
 export const Overview = () => {
   const [styleSelection,setActiveStyle] = useState(0);
-
   const activeStyle = mockItemStyles[styleSelection];
-
-
   const handleStyleClick = useCallback((e: SetStateAction<number>) => {
     setActiveStyle(e)
   },[]);

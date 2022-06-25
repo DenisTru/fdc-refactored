@@ -1,0 +1,35 @@
+:root {
+  --star-size: 12px;
+  --star-color: #fff;
+  --star-background: rgb(109, 109, 109);
+}
+.stars-container {
+ text-align: left;
+}
+
+.Stars {
+  padding-left: 5px;
+  padding-top: 13px;
+  --percent: calc(var(--rating) / 15.5 * 300%);
+  display: inline-block;
+  font-size: var(--star-size);
+  font-family: Times; // make sure ★ appears correctly
+  line-height: 1;
+  -webkit-text-stroke: .5px rgb(65, 65, 65);
+  &::before {
+    content: '★★★★★';
+    letter-spacing: 3px;
+    background: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
+    background-clip:initial;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.reviews-link{
+  font-size:small
+}
+
+a{
+  color: hotpink;
+}
