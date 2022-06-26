@@ -20,7 +20,7 @@ function App() {
       </Routes>
       </div>
       <footer className='App-footer'>
-        footer here
+
       </footer>
     </div>
   );

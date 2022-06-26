@@ -11,5 +11,15 @@ hr {
   display: flex;
   align-items:center;
   justify-content: space-between;
+}
 
+.review-title{
+  margin-top: 10px;
+}
+
+.review-checkmark{
+  color:rgb(20,175,3);
+}
+.review-underline{
+  text-decoration: underline;
 }
