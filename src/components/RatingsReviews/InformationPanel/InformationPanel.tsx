@@ -1,5 +1,5 @@
 import './styles/InformationPanel.scss'
-import {StarReviews} from './StarReviews'
+import {StarReviews} from '../StarReviews'
 
 
 export const InformationPanel = () => {
@@ -55,7 +55,7 @@ const TraitsBar = ({rating}: TraitsBarProps) => {
  return (<div className="trait-rating">
  <span className="scale"></span>
  <span className="scale"></span>
- <span className="scale"></span>
+ <span className="scale black"></span>
  <span className="scale"></span>
  <span className="scale"></span>
  </div>)

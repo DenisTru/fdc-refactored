@@ -1,6 +1,6 @@
 import React from "react"
-import './styles/StarReviews.scss'
-import { StarReviewsProps } from "../../ProductOverview/types/InformationPanel.types"
+import './StarReviews.scss'
+import { StarReviewsProps } from '../ProductOverview/types/InformationPanel.types'
 
 
 export const StarReviews = (props: StarReviewsProps) => {
