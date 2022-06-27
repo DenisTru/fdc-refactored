@@ -5,4 +5,10 @@
 .buttons{
   display: flex;
   justify-content:end;
+;
+}
+@media only screen and (max-width: 600px) {
+  .buttons {
+  max-width:325px;
+  }
 }

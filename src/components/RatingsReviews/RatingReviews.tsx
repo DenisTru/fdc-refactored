@@ -3,11 +3,11 @@ import { ReviewPanel } from "./ReviewPanel/ReviewPanel"
 import './RatingReviews.scss'
 
 import { Button } from '@mantine/core';
-
+import { useMediaQuery } from '@mantine/hooks';
 
 
 export const RatingReviews = () => {
-
+  const largeScreen = useMediaQuery('(min-width:600px)');
 
   return(
     <section className="ratingReviews-section">
@@ -18,7 +18,7 @@ export const RatingReviews = () => {
         variant="outline"
         color="gray"
         radius="xs"
-        size="md"
+        size={largeScreen ? 'md' : 'xs'}
         uppercase>
       More Reviews
     </Button>
@@ -27,7 +27,7 @@ export const RatingReviews = () => {
         variant="outline"
         color="gray"
         radius="xs"
-        size="md"
+        size={largeScreen ? 'md' : 'xs'}
         uppercase>
       Add A Review +
     </Button>
