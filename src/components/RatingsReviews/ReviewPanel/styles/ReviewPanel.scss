@@ -7,13 +7,15 @@ text-align: left;
   width:700px;
 }
 .review-list li{
-  padding-top: 15px;
  list-style: none;
+}
+.first-bullet {
+  padding-top: 15px;
 }
 
 @media only screen and (max-width: 600px) {
   .review-list {
-   max-width: 325px;
+   max-width: 350px;
   }
   .review-name-date {
     font-size: 13px;

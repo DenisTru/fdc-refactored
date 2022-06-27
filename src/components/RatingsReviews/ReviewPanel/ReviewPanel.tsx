@@ -18,7 +18,7 @@ export const ReviewPanel = () => {
       maxDropdownHeight={280}
       data={['helpful', 'newest', 'relevant']}/>}
       </span>
-      <li><Review/></li>
+      <li className="first-bullet"><Review/></li>
       <li><Review/></li>
       <li><Review/></li>
     </ol>

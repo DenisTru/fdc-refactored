@@ -109,3 +109,9 @@ overflow: hidden;
 .black {
   background: #d20909;
 }
+
+@media only screen and (max-width: 600px) {
+  .ratings-panel{
+    max-width: 325px;
+  }
+}
