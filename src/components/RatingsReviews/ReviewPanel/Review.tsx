@@ -13,7 +13,6 @@ export const Review = () => {
   reviewer_name={mockReview.reviewer_name}/>
   </span>
   <h5 className="review-title">{mockReview.summary}</h5>
-  <p>...line, if necessary</p>
   <p>{mockReview.body}</p>
   <p>Helpful? <span className='review-underline'>Yes</span> ({mockReview.helpfulness}) | <span className='review-underline'>Report</span></p>
   <hr/>

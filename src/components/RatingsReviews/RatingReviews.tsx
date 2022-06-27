@@ -7,6 +7,7 @@ export const RatingReviews = () => {
 
   return(
     <section className="ratingReviews-section">
+      <InformationPanel />
       <ReviewPanel />
     </section>
   )

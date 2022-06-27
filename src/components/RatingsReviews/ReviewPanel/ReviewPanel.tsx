@@ -5,7 +5,7 @@ import { FiChevronDown } from 'react-icons/fi'
 
 export const ReviewPanel = () => {
   return (
-    <ol>
+    <ol className="review-list">
       <span className="reviewPanel-description">248 reviews, sorted by&nbsp;
       {<Select
       size="sm"
