@@ -3,11 +3,24 @@
 }
 
 .buttons{
+  margin: 0;
   display: flex;
-  justify-content:end;
-;
+  justify-content:flex-end;
 }
 @media only screen and (max-width: 600px) {
+  .buttons {
+    display: flex;
+  max-width:325px;
+  justify-content:end;
+  }
+}
+@media only screen and (max-width: 770px) {
+  .buttons {
+  max-width:325px;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
   .buttons {
   max-width:325px;
   }

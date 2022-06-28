@@ -3,18 +3,19 @@ import { StarReviews } from "../StarReviews"
 import { AiFillCheckCircle } from 'react-icons/ai'
 import './styles/Review.scss'
 
-export const Review = () => {
+
+export const Review = (review: ReviewProps) => {
   return (
   <div className="review">
   <span className="review-rating"><StarReviews rating={3.5}/>
   <ReviewUser
-  recommend={mockReview.recommend}
-  date={mockReview.date}
-  reviewer_name={mockReview.reviewer_name}/>
+  recommend={review.recommend}
+  date={review.date}
+  reviewer_name={review.reviewer_name}/>
   </span>
-  <h5 className="review-title">{mockReview.summary}</h5>
-  <p>{mockReview.body}</p>
-  <p>Helpful? <span className='review-underline'>Yes</span> ({mockReview.helpfulness}) | <span className='review-underline'>Report</span></p>
+  <h5 className="review-title">{review.summary}</h5>
+  <p>{review.body}</p>
+  <p>Helpful? <span className='review-underline'>Yes</span> ({review.helpfulness}) | <span className='review-underline'>Report</span></p>
   <hr/>
   </div>
   )
@@ -37,10 +38,23 @@ const ReviewUser = ({reviewer_name, date, recommend}:ReviewUserProps) => {
   )
 }
 
+export interface ReviewProps {
+    review_id:     number;
+    rating:        number;
+    summary:       string;
+    recommend:     boolean;
+    response:      string|null;
+    body:          string;
+    date:          string;
+    reviewer_name: string;
+    helpfulness:   number;
+    photos:        Photo[];
+}
+
 export interface ReviewUserProps {
-  recommend:     boolean;
-  date:          string;
-  reviewer_name: string;
+  reviewer_name: ReviewProps['reviewer_name']
+  date: ReviewProps['date']
+  recommend: ReviewProps['recommend']
 }
 
 export interface Photo {
@@ -68,3 +82,5 @@ const mockReview =  {
     },
   ]
 }
+
+
