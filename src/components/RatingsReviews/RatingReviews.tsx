@@ -10,9 +10,8 @@ import { useState } from "react";
 export const RatingReviews = () => {
   const largeScreen = useMediaQuery('(min-width:600px)');
   const [reviewCount, setReviewCount] = useState(2);
-
   const handleCount = () => {
-    console.log('test')
+    console.log(reviewCount === mockReviews.length)
     setReviewCount(reviewCount+2);
   }
   return(
@@ -28,7 +27,7 @@ export const RatingReviews = () => {
         radius="xs"
         size={largeScreen ? 'md' : 'xs'}
         onClick={handleCount}
-        style={reviewCount === mockReviews.length ? { display: 'none' } : {}}
+        style={reviewCount === mockReviews.length  || mockReviews.length === 0 ? { display: 'none' } : {}}
         uppercase>
       More Reviews
     </Button>
