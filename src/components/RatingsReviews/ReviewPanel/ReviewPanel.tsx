@@ -3,7 +3,6 @@ import { Review } from "./Review";
 import './styles/ReviewPanel.scss'
 import { Select } from '@mantine/core';
 import { FiChevronDown } from 'react-icons/fi'
-import { off } from "process";
 
 interface ReviewPanelProps {
   setReviewCount: (count: number) => void;
@@ -29,25 +28,28 @@ export const ReviewPanel = ({reviewCount, setReviewCount}: ReviewPanelProps) => 
   })
 
   const sortedReviews= function(sort:sort['filterString']) {
+    let filter = mockReviews.sort();
+
     if(sort === 'newest') {
-      return mockReviews.sort((a,b) => {
+      filter = mockReviews.sort((a,b) => {
         return new Date(b.date).valueOf() - new Date(a.date).valueOf();
-      }).map((review, index) => {
-        if(index < reviewCount) {
-          return <li key={index}>{<Review review_id={review.review_id} rating={review.rating} summary={review.summary} recommend={review.recommend} response={review.response} body={review.body} date={review.date} reviewer_name={review.reviewer_name} helpfulness={review.helpfulness} photos={review.photos} />}</li>
-        }
-        return ''
-      }
-      )
+      })
     }
     if(sort === 'helpful') {
-
+      filter = mockReviews.sort((a,b) => {
+        return b.helpfulness - a.helpfulness;
+      })
     }
     if(sort === 'relevance') {
 
     }
-
-    return reviews;
+    return filter.map((review, index) => {
+      if(index < reviewCount) {
+        return <li key={index}>{<Review review_id={review.review_id} rating={review.rating} summary={review.summary} recommend={review.recommend} response={review.response} body={review.body} date={review.date} reviewer_name={review.reviewer_name} helpfulness={review.helpfulness} photos={review.photos} />}</li>
+      }
+      return ''
+    }
+    );
   }
 
 
@@ -108,7 +110,7 @@ const mockReviews = [
     "body": "They are very dark. But that's good because I'm in very sunny spots",
     "date": "2019-06-23T00:00:00.000Z",
     "reviewer_name": "bigbrotherbenjamin",
-    "helpfulness": 5,
+    "helpfulness": 10,
     "photos": [],
   },
   {
@@ -120,7 +122,7 @@ const mockReviews = [
     "body": "They are very dark. But that's good because I'm in very sunny spots",
     "date": "2019-06-25T00:00:00.000Z",
     "reviewer_name": "bigbrotherbenjamin",
-    "helpfulness": 5,
+    "helpfulness": 7,
     "photos": [],
   },
   {
@@ -132,7 +134,7 @@ const mockReviews = [
     "body": "They are very dark. But that's good because I'm in very sunny spots",
     "date": "2019-06-20T00:00:00.000Z",
     "reviewer_name": "bigbrotherbenjamin",
-    "helpfulness": 5,
+    "helpfulness": 3,
     "photos": [],
   },
   // ...
