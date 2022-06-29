@@ -41,7 +41,17 @@ export const ReviewPanel = ({reviewCount, setReviewCount}: ReviewPanelProps) => 
       })
     }
     if(sort === 'relevance') {
-
+      //if review is less recent but more helpful its pushed up
+      //then if review is more recent but less helpful it comes next
+      filter = mockReviews.sort((a,b) => {
+        if(new Date(b.date).valueOf() - new Date(a.date).valueOf() <= 0) {
+          return b.helpfulness - a.helpfulness < 0 ? -1 : 1
+        }
+        if(b.helpfulness - a.helpfulness >= 0) {
+          return new Date(a.date).valueOf() - new Date(b.date).valueOf() < 0 ? 1:-1
+        }
+        return new Date(b.date).valueOf() - new Date(a.date).valueOf();
+      })
     }
     return filter.map((review, index) => {
       if(index < reviewCount) {
